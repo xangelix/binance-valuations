@@ -14,7 +14,7 @@ None! This project uses just vanilla Javascript!
 ### Installing and Deployment
 
 1. Clone the repository.
-2. Go to [chrome://extensions](chrome://extensions). (or similar if using a different chromium based browser such as with vivaldi: [vivaldi://extensions](vivaldi://extensions))
+2. Go to [chrome://extensions](chrome://extensions). (or similar for other chromium based browsers such as vivaldi: [vivaldi://extensions](vivaldi://extensions))
 3. Enable developer mode.
 4. Click "Load unpacked extension..." and select the repository's folder
 5. Done!
@@ -25,7 +25,7 @@ Happy forking!
 
 ## Built With
 
-* [Javscript](https://www.javascript.com/) - The web framework used
+* [Javascript](https://www.javascript.com/) - The web framework used
 
 ## Contributing
 
@@ -43,4 +43,4 @@ This project is licensed under the GNU GENERAL PUBLIC LICENSE (Version 3, 29 Jun
 
 ## Acknowledgments
 
-* Props to the [Programmer's Hangout Discord Server](https://discord.me/page/coding) which helped me with some aynch problems I hit.
+* Props to the [Programmer's Hangout Discord Server](https://discord.me/page/coding) which helped me with some asynch problems I hit.
