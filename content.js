@@ -1,3 +1,4 @@
+//Asynchronous HTTP Requestor
 var HttpClient = function() {
     this.get = function(aUrl, aCallback) {
         var anHttpRequest = new XMLHttpRequest();
@@ -11,11 +12,14 @@ var HttpClient = function() {
     };
 };
 
+//Collection of Website Information by Class
 var names = document.getElementsByClassName('coin ng-binding');
 var amounts = document.getElementsByClassName('total f-right ng-binding');
 var btcs = document.getElementsByClassName('equalValue f-right ng-binding ng-scope');
 var temp = [];
 
+//Synchronous spawner of asynchronous requests based off found wallets
+//To-do: Only request values above 0
 for (var i = 1, l = amounts.length; i < l; i++) {
   var coinValue = "";
   temp.push(names[i].innerHTML);
@@ -23,6 +27,7 @@ for (var i = 1, l = amounts.length; i < l; i++) {
   requestion(request, names[i].innerHTML);
 }
 
+//Asynchronous calling
 function requestion(request, name) {
   var client = new HttpClient();
   client.get(request, function(response) {
@@ -30,19 +35,23 @@ function requestion(request, name) {
   });
 }
 
+//Parsing of HTTP request
 function parseP(coinName, coinValue) {
   coinValue = coinValue.substr(7);
   coinValue = coinValue.substr(0, coinValue.length - 1);
-  console.log('coin name: ' + coinName.replace(/<(?:.|\n)*?>/gm, ''));
-  console.log('coin value: ' + parseFloat(coinValue));
+  //console.log('DEBUG: Coin Name: ' + coinName.replace(/<(?:.|\n)*?>/gm, ''));
+  //console.log('DEBUG: Coin Value: ' + parseFloat(coinValue));
   var index = indexFinder(coinName);
-  console.log('amount: ' + parseFloat(amounts[index].innerHTML));
+  //console.log('DEBUG: Coin Amounts: ' + parseFloat(amounts[index].innerHTML));
   var output = parseFloat(coinValue) * parseFloat(btcs[index].innerHTML);
   output = " - $" + output.toFixed(2);
-  console.log('TOTAL: ' + output);
+  //console.log('TOTAL: ' + output);
+  //To-Do: Add tradingview graphs to changed elements
+  //Final posting of data
   amounts[index + 1].innerHTML += output;
 }
 
+//Indexing agent for matching asynchronous replies to page
 function indexFinder(coinName) {
   function finding(element) {
     return element === coinName;
