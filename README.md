@@ -10,12 +10,13 @@ Please use the [issues tracker on this github repository](https://github.com/Mat
 ## Upcoming Features
 * Only request values above 0
 * Add TradingView embedded graphs to changed elements
+* More currencies to convert into than USD
 
-### Prerequisites
+## Prerequisites
 
 None! This project uses just vanilla JavaScript!
 
-### Installing and Deployment
+## Installing and Deployment
 
 1. Clone the repository.
 2. Go to ["chrome://extensions"](chrome://extensions). (or similar for other chromium based browsers such as vivaldi: ["vivaldi://extensions"](vivaldi://extensions))
