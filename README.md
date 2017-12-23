@@ -7,25 +7,29 @@ This adds the value of each wallet in Binance (under deposits and withdraws) aft
 
 Please use the [issues tracker on this github repository](https://github.com/Matrix-Guy/binance-valuations/issues)!
 
+## Upcoming Features
+* Only request values above 0
+* Add TradingView embedded graphs to changed elements
+
 ### Prerequisites
 
-None! This project uses just vanilla Javascript!
+None! This project uses just vanilla JavaScript!
 
 ### Installing and Deployment
 
 1. Clone the repository.
-2. Go to [chrome://extensions](chrome://extensions). (or similar for other chromium based browsers such as vivaldi: [vivaldi://extensions](vivaldi://extensions))
+2. Go to ["chrome://extensions"](chrome://extensions). (or similar for other chromium based browsers such as vivaldi: ["vivaldi://extensions"](vivaldi://extensions))
 3. Enable developer mode.
 4. Click "Load unpacked extension..." and select the repository's folder
 5. Done!
 
-Most editing you will want to do if any will take place in [content.js](https://github.com/Matrix-Guy/binance-valuations/blob/master/content.js).
+Most editing you will want to do if any will take place in [content.js](content.js).
 
 Happy forking!
 
 ## Built With
 
-* [Javascript](https://www.javascript.com/) - The web framework used
+* [JavaScript](https://www.javascript.com/) - The web framework used
 
 ## Contributing
 
