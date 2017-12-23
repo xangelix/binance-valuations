@@ -31,6 +31,7 @@ Happy forking!
 ## Built With
 
 * [JavaScript](https://www.javascript.com/) - The web framework used
+* [CryptoCompare API](https://www.cryptocompare.com/api/) - The API for getting accurate prices
 
 ## Contributing
 

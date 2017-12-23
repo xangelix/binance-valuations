@@ -1,4 +1,4 @@
-//Asynchronous HTTP Requestor
+// Asynchronous HTTP Requestor
 var HttpClient = function() {
     this.get = function(aUrl, aCallback) {
         var anHttpRequest = new XMLHttpRequest();
@@ -12,22 +12,31 @@ var HttpClient = function() {
     };
 };
 
-//Collection of Website Information by Class
+// Collection of Website Information by Class
 var names = document.getElementsByClassName('coin ng-binding');
 var amounts = document.getElementsByClassName('total f-right ng-binding');
 var btcs = document.getElementsByClassName('equalValue f-right ng-binding ng-scope');
-var temp = [];
+var namesIndex = [];
 
-//Synchronous spawner of asynchronous requests based off found wallets
-//To-do: Only request values above 0
+// Test if prices have already been added
+if (amounts[1].innerHTML.includes("$")) {
+  for (var i = 1; i < amounts.length; i++) {
+    // Removal of previous prices
+    amounts[i].innerHTML = amounts[i].innerHTML.substring(0, amounts[i].innerHTML.indexOf('$')).slice(0, -4);
+  }
+}
+
+// Synchronous spawner of asynchronous requests based off found wallets
+// To-do: Only request values above 0
 for (var i = 1, l = amounts.length; i < l; i++) {
   var coinValue = "";
-  temp.push(names[i].innerHTML);
+  namesIndex.push(names[i].innerHTML);
+  // To-do: Add more currencies to convert to than USD
   var request = 'https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD';
   requestion(request, names[i].innerHTML);
 }
 
-//Asynchronous calling
+// Asynchronous calling
 function requestion(request, name) {
   var client = new HttpClient();
   client.get(request, function(response) {
@@ -35,7 +44,7 @@ function requestion(request, name) {
   });
 }
 
-//Parsing of HTTP request
+// Parsing of HTTP request
 function parseP(coinName, coinValue) {
   coinValue = coinValue.substr(7);
   coinValue = coinValue.substr(0, coinValue.length - 1);
@@ -46,8 +55,8 @@ function parseP(coinName, coinValue) {
   var output = parseFloat(coinValue) * parseFloat(btcs[index].innerHTML);
   output = " - $" + output.toFixed(2);
   //console.log('TOTAL: ' + output);
-  //To-Do: Add tradingview graphs to changed elements
-  //Final posting of data
+  // To-do: Add tradingview graphs to changed elements
+  // Final posting of data
   amounts[index + 1].innerHTML += output;
 }
 
@@ -56,5 +65,5 @@ function indexFinder(coinName) {
   function finding(element) {
     return element === coinName;
   }
-  return temp.findIndex(finding);
+  return namesIndex.findIndex(finding);
 }
