@@ -12,7 +12,7 @@ var HttpClient = function() {
     };
 };
 
-// Collection of Website Information by Class
+// Collection of website information by class
 var names = document.getElementsByClassName('coin ng-binding');
 var amounts = document.getElementsByClassName('total f-right ng-binding');
 var btcs = document.getElementsByClassName('equalValue f-right ng-binding');
@@ -52,12 +52,12 @@ function parseP(coinName, coinValue) {
   //console.log('DEBUG: Coin Value: ' + parseFloat(coinValue));
   var index = indexFinder(coinName);
   //console.log('DEBUG: Coin Amounts: ' + parseFloat(amounts[index].innerHTML));
-  var output = parseFloat(coinValue) * parseFloat(btcs[index].innerHTML);
+  var output = parseFloat(coinValue) * parseFloat(btcs[index + 1].innerHTML);
   output = " - $" + output.toFixed(2);
   //console.log('TOTAL: ' + output);
   // To-do: Add tradingview graphs to changed elements
   // Final posting of data
-  amounts[index].innerHTML += output;
+  amounts[index + 1].innerHTML += output;
 }
 
 //Indexing agent for matching asynchronous replies to page
