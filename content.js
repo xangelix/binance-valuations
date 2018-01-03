@@ -15,7 +15,7 @@ var HttpClient = function() {
 // Collection of Website Information by Class
 var names = document.getElementsByClassName('coin ng-binding');
 var amounts = document.getElementsByClassName('total f-right ng-binding');
-var btcs = document.getElementsByClassName('equalValue f-right ng-binding ng-scope');
+var btcs = document.getElementsByClassName('equalValue f-right ng-binding');
 var namesIndex = [];
 
 // Test if prices have already been added
@@ -57,7 +57,7 @@ function parseP(coinName, coinValue) {
   //console.log('TOTAL: ' + output);
   // To-do: Add tradingview graphs to changed elements
   // Final posting of data
-  amounts[index + 1].innerHTML += output;
+  amounts[index].innerHTML += output;
 }
 
 //Indexing agent for matching asynchronous replies to page
