@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 // Asynchronous HTTP Requestor
 var HttpClient = function() {
     this.get = function(aUrl, aCallback) {
@@ -7,7 +8,7 @@ var HttpClient = function() {
                 aCallback(anHttpRequest.responseText);
         };
 
-        anHttpRequest.open( "GET", aUrl, true );
+        anHttpRequest.open( 'GET', aUrl, true );
         anHttpRequest.send( null );
     };
 };
@@ -17,25 +18,27 @@ var names = document.getElementsByClassName('coin ng-binding');
 var amounts = document.getElementsByClassName('total f-right ng-binding');
 var btcs = document.getElementsByClassName('equalValue f-right ng-binding');
 var namesIndex = [];
+var currency = 'USD';
 
 // Test if prices have already been added
-if (amounts[1].innerHTML.includes("$")) {
+if (amounts[1].innerHTML.includes('-')) {
   for (var i = 1; i < amounts.length; i++) {
     // Removal of previous prices
-    amounts[i].innerHTML = amounts[i].innerHTML.substring(0, amounts[i].innerHTML.indexOf('$')).slice(0, -4);
+    amounts[i].innerHTML = amounts[i].innerHTML.substring(0, amounts[i].innerHTML.indexOf('-'));
   }
 }
 
-// Synchronous spawner of asynchronous requests based off found wallets
-// To-do: Only request values above 0
-for (var i = 1, l = amounts.length; i < l; i++) {
-  var coinValue = "";
-  namesIndex.push(names[i].innerHTML);
-  // To-do: Add more currencies to convert to than USD
-  var request = 'https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD';
-  requestion(request, names[i].innerHTML);
-}
-
+chrome.storage.sync.get('currency', (data) => {
+  // Synchronous spawner of asynchronous requests based off found wallets
+  // To-do: Only request values above 0
+  for (var i = 1, l = amounts.length; i < l; i++) {
+    var coinValue = '';
+    currency = data.currency;
+    namesIndex.push(names[i].innerHTML);
+    var request = 'https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=' + data.currency;
+    requestion(request, names[i].innerHTML);
+  }
+});
 // Asynchronous calling
 function requestion(request, name) {
   var client = new HttpClient();
@@ -53,7 +56,22 @@ function parseP(coinName, coinValue) {
   var index = indexFinder(coinName);
   //console.log('DEBUG: Coin Amounts: ' + parseFloat(amounts[index].innerHTML));
   var output = parseFloat(coinValue) * parseFloat(btcs[index + 1].innerHTML);
-  output = " - $" + output.toFixed(2);
+
+  function getCurrency(currency) {
+  const symbols = {
+    USD: '$',
+    EUR: '€',
+    GBP: '£',
+    INR: '₹',
+    AUD: 'A$',
+    CAD: 'C$',
+    JPY: 'J￥',
+    CNY: 'C￥'
+  };
+  return symbols[currency];
+  }
+
+  output = ' - ' + getCurrency(currency) + output.toFixed(2);
   //console.log('TOTAL: ' + output);
   // To-do: Add tradingview graphs to changed elements
   // Final posting of data
