@@ -1,7 +1,8 @@
 # binance-valuations
 
-Finds values of individual wallets inside binance!
+Finds values of individual wallets inside Binance!
 This adds the value of each wallet in Binance (under deposits and withdraws) after clicking on the chrome extension icon.
+[Link to chrome extension page](https://chrome.google.com/webstore/detail/binance-valuations/gigeklhepgkfmglclnonjblcchoalpda)
 
 ## For Feature Suggestions and Bug Reports
 
@@ -9,14 +10,17 @@ Please use the [issues tracker on this github repository](https://github.com/Mat
 
 ## Upcoming Features
 * Only request values above 0
-* Add TradingView embedded graphs to changed elements
-* More currencies to convert into than USD
+* Dropdown for links to different resources when hovering over value
 
 ## Prerequisites
 
-None! This project uses just vanilla JavaScript!
+None! This project uses just vanilla JavaScript and the internet!
 
 ## Installing and Deployment
+
+[Link to chrome extension page](https://chrome.google.com/webstore/detail/binance-valuations/gigeklhepgkfmglclnonjblcchoalpda)
+
+or
 
 1. Clone the repository.
 2. Go to ["chrome://extensions"](chrome://extensions). (or similar for other chromium based browsers such as vivaldi: ["vivaldi://extensions"](vivaldi://extensions))
@@ -49,4 +53,4 @@ This project is licensed under the GNU GENERAL PUBLIC LICENSE (Version 3, 29 Jun
 
 ## Acknowledgments
 
-* Props to the [Programmer's Hangout Discord Server](https://discord.me/page/coding) which helped me with some asynch problems I hit.
+* Props to the [Programmer's Hangout Discord Server](https://discord.me/page/coding) which helped me with some async problems I hit.

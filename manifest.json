@@ -2,7 +2,7 @@
   "manifest_version": 2,
 
   "name": "Binance Valuations",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Finds values of individual wallets inside binance!",
 
   "browser_action": {
