@@ -1,7 +1,9 @@
 # binance-valuations
 
 Finds values of individual wallets inside Binance!
+
 This adds the value of each wallet in Binance (under deposits and withdraws) after clicking on the chrome extension icon.
+
 [Link to chrome extension page](https://chrome.google.com/webstore/detail/binance-valuations/gigeklhepgkfmglclnonjblcchoalpda)
 
 ## For Feature Suggestions and Bug Reports
@@ -16,7 +18,7 @@ WIP
 * Dropdown for links to different resources when hovering over value
 * Removal of nasty global variables
 * Migration to ES6+ features
-* More customization options of formatting and features in the GUI 
+* More customization options of formatting and features in the GUI
 
 ## Prerequisites
 
