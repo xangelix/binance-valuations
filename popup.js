@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Listener to run if dropdown value changes
     // If triggered chrome.storage.sync is updated and content.js is reloaded
     dropdown.addEventListener('change', () => {
-      changeCurrency(dropdown.value);
+      changeCurrency();
       saveCurrency(dropdown.value);
     });
   });
