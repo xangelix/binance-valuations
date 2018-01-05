@@ -8,9 +8,15 @@ This adds the value of each wallet in Binance (under deposits and withdraws) aft
 
 Please use the [issues tracker on this github repository](https://github.com/Matrix-Guy/binance-valuations/issues)!
 
+## Current Features
+WIP
+
 ## Upcoming Features
 * Only request values above 0
 * Dropdown for links to different resources when hovering over value
+* Removal of nasty global variables
+* Migration to ES6+ features
+* More customization options of formatting and features in the GUI 
 
 ## Prerequisites
 

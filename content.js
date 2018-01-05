@@ -1,4 +1,5 @@
 /*jshint esversion: 6 */
+
 // Asynchronous HTTP Requestor
 var HttpClient = function() {
     this.get = function(aUrl, aCallback) {
@@ -13,6 +14,7 @@ var HttpClient = function() {
     };
 };
 
+// Key of currencies
 function getCurrency(currency) {
 const symbols = {
   USD: '$',
@@ -31,10 +33,14 @@ return symbols[currency];
 var names = document.getElementsByClassName('coin ng-binding');
 var amounts = document.getElementsByClassName('total f-right ng-binding');
 var btcs = document.getElementsByClassName('equalValue f-right ng-binding');
+
+// Global variables
 var namesIndex = [];
 var index;
 var currency = 'USD';
-var prefix = `<br><button class="btn btn-success" onclick=" window.open('https://www.cryptocompare.com/coins/`;
+
+// Links formatting constants
+var prefix0 = `<br><button class="btn btn-success" onclick=" window.open('https://www.cryptocompare.com/coins/`;
 var suffix0 = `/overview/`;
 var suffix1 = `','_blank')">`;
 var suffix2 = `</button>`;
@@ -42,7 +48,7 @@ var suffix2 = `</button>`;
 // Test if prices have already been added
 if (amounts[1].innerHTML.includes('<button class="btn btn-success"')) {
   for (var i = 1; i < amounts.length; i++) {
-    // Removal of previous prices
+    // Removal of previous prices and formatting
     amounts[i].innerHTML = amounts[i].innerHTML.substring(0, amounts[i].innerHTML.indexOf('-'));
     amounts[i].innerHTML = amounts[i].innerHTML.replace('<br>', '');
   }
@@ -75,15 +81,13 @@ function parseP(coinName, coinValue) {
   index = indexFinder(coinName);
   if (parseFloat(btcs[index + 1].innerHTML) > 0) {
     var output = parseFloat(coinValue) * parseFloat(btcs[index + 1].innerHTML);
-
     output = getCurrency(currency) + output.toFixed(2);
-    //console.log('TOTAL: ' + output);
-    // To-do: Add tradingview graphs to changed elements
+
+    // Dropdown for links to different resources when hovering over value
     // Final posting of data
-    amounts[index + 1].innerHTML += prefix + coinName.replace(/<(?:.|\n)*?>/gm, '').toLowerCase() + suffix0 + currency + suffix1 + output + suffix2;
+    amounts[index + 1].innerHTML += prefix0 + coinName.replace(/<(?:.|\n)*?>/gm, '').toLowerCase() + suffix0 + currency + suffix1 + output + suffix2;
   }
 }
-
 
 //Indexing agent for matching asynchronous replies to page
 function indexFinder(coinName) {
