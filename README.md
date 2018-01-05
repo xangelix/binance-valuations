@@ -57,7 +57,7 @@ Any future collaborators will be added here.
 
 ## License
 
-This project is licensed under the GNU GENERAL PUBLIC LICENSE (Version 3, 29 June 2007) - see the [LICENSE.md](LICENSE.md) file for details.
+This project is licensed under the GNU GENERAL PUBLIC LICENSE (Version 3, 29 June 2007) - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
 
