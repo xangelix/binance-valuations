@@ -14,7 +14,7 @@ var HttpClient = function() {
     };
 };
 
-// Key of currencies
+// Key of currency symbols
 function getCurrency(currency) {
 const symbols = {
   USD: '$',
@@ -48,21 +48,27 @@ var suffix2 = `</button>`;
 // Test if prices have already been added
 if (amounts[1].innerHTML.includes('<button class="btn btn-success"')) {
   for (var i = 1; i < amounts.length; i++) {
+    namesIndex.push(names[i].innerHTML);
+    if (parseFloat(btcs[indexFinder(names[i].innerHTML) + 1].innerHTML) > 0) {
+
     // Removal of previous prices and formatting
     amounts[i].innerHTML = amounts[i].innerHTML.substring(0, amounts[i].innerHTML.indexOf('-'));
     amounts[i].innerHTML = amounts[i].innerHTML.replace('<br>', '');
+    }
   }
 }
 
 chrome.storage.sync.get('currency', (data) => {
+
   // Synchronous spawner of asynchronous requests based off found wallets
-  // To-do: Only request values above 0
   for (var i = 1, l = amounts.length; i < l; i++) {
     var coinValue = '';
     currency = data.currency;
     namesIndex.push(names[i].innerHTML);
     var request = 'https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=' + data.currency;
-    requestion(request, names[i].innerHTML);
+    if (parseFloat(btcs[indexFinder(names[i].innerHTML) + 1].innerHTML) > 0) {
+      requestion(request, names[i].innerHTML);
+    }
   }
 });
 

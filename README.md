@@ -14,7 +14,6 @@ Please use the [issues tracker on this github repository](https://github.com/Mat
 WIP
 
 ## Upcoming Features
-* Only request values above 0
 * Dropdown for links to different resources when hovering over value
 * Removal of nasty global variables
 * Migration to ES6+ features
