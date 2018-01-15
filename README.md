@@ -13,9 +13,13 @@ Please use the [issues tracker on this github repository](https://github.com/Mat
 ## Current Features
 WIP
 
-## Upcoming Features
+## Upcoming Features (highest importance closer to the top)
+* Show the price of a single coin (unit price) next to the total value ([Issue 1](https://github.com/Matrix-Guy/binance-valuations/issues/1))
+* Issue and pull request template
 * Dropdown for links to different resources when hovering over value
 * Removal of nasty global variables
+* Contributing guidelines
+* Code of conduct
 * Migration to ES6+ features
 * More customization options of formatting and features in the GUI
 
