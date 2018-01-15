@@ -20,12 +20,14 @@ WIP
 * Removal of nasty global variables
 * Contributing guidelines
 * Code of conduct
+* Firefox support
 * Migration to ES6+ features
 * More customization options of formatting and features in the GUI
 
 ## Prerequisites
 
-None! This project uses just vanilla JavaScript and the internet!
+* Access to binance.com and www.cryptocompare.com
+* Chromium based browser (firefox support is planned)
 
 ## Installing and Deployment
 
