@@ -26,7 +26,7 @@ WIP
 
 ## Prerequisites
 
-* Access to binance.com and www.cryptocompare.com
+* Access to [Binance](https://binance.com/) and [CryptoCompare](https://www.cryptocompare.com/)
 * Chromium based browser (firefox support is planned)
 
 ## Installing and Deployment
