@@ -43,7 +43,8 @@ var currency = 'USD';
 var prefix0 = `<br><button class="btn btn-success" onclick=" window.open('https://www.cryptocompare.com/coins/`;
 var suffix0 = `/overview/`;
 var suffix1 = `','_blank')">`;
-var suffix2 = `</button>`;
+var spacing = ` (`;
+var suffix2 = `)</button>`;
 
 // Test if prices have already been added
 if (amounts[1].innerHTML.includes('<button class="btn btn-success"')) {
@@ -87,11 +88,13 @@ function parseP(coinName, coinValue) {
   index = indexFinder(coinName);
   if (parseFloat(btcs[index + 1].innerHTML) > 0) {
     var output = parseFloat(coinValue) * parseFloat(btcs[index + 1].innerHTML);
+    var outputEach = output.toFixed(2) / 1;
     output = getCurrency(currency) + output.toFixed(2);
+    outputEach = getCurrency(currency) + outputEach.toFixed(2);
 
     // Dropdown for links to different resources when hovering over value
     // Final posting of data
-    amounts[index + 1].innerHTML += prefix0 + coinName.replace(/<(?:.|\n)*?>/gm, '').toLowerCase() + suffix0 + currency + suffix1 + output + suffix2;
+    amounts[index + 1].innerHTML += prefix0 + coinName.replace(/<(?:.|\n)*?>/gm, '').toLowerCase() + suffix0 + currency + suffix1 + output + spacing + outputEach + suffix2;
   }
 }
 
