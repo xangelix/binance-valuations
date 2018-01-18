@@ -60,10 +60,12 @@ if (amounts[1].innerHTML.includes('<button class="btn btn-success"')) {
 }
 
 chrome.storage.sync.get('currency', (data) => {
+
+  // Asynchronous HTTP request
   var client = new HttpClient();
   client.get('https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=' + data.currency, function(response) {
     currency = data.currency;
-    
+
     // Synchronous spawner of asynchronous requests based off found wallets
     for (var i = 1, l = amounts.length; i < l; i++) {
       var coinValue = '';
@@ -75,30 +77,23 @@ chrome.storage.sync.get('currency', (data) => {
   });
 });
 
-// Asynchronous calling
-function requestion(request, name) {
-
-}
-
 // Parsing of HTTP request
 function parseP(coinName, coinValue) {
   coinValue = coinValue.substr(7);
   coinValue = coinValue.substr(0, coinValue.length - 1);
   index = indexFinder(coinName);
-  if (parseFloat(btcs[index + 1].innerHTML) > 0) {
-    var output = parseFloat(coinValue) * parseFloat(btcs[index + 1].innerHTML);
-    var outputEach = output.toFixed(2) / amounts[index + 1].innerHTML.replace(/<(?:.|\n)*?>/gm, '');
-    output = getCurrency(currency) + output.toFixed(2);
-    if (outputEach > 100) {
-      outputEach = getCurrency(currency) + outputEach.toFixed(0);
-    } else {
-      outputEach = getCurrency(currency) + outputEach.toFixed(2);
-    }
-
-    // Dropdown for links to different resources when hovering over value
-    // Final posting of data
-    amounts[index + 1].innerHTML += prefix0 + coinName.replace(/<(?:.|\n)*?>/gm, '').toLowerCase() + suffix0 + currency + suffix1 + output + spacing + outputEach + suffix2;
+  var output = parseFloat(coinValue) * parseFloat(btcs[index + 1].innerHTML);
+  var outputEach = output.toFixed(2) / amounts[index + 1].innerHTML.replace(/<(?:.|\n)*?>/gm, '');
+  output = getCurrency(currency) + output.toFixed(2);
+  if (outputEach > 100) {
+    outputEach = getCurrency(currency) + outputEach.toFixed(0);
+  } else {
+    outputEach = getCurrency(currency) + outputEach.toFixed(2);
   }
+
+  // Dropdown for links to different resources when hovering over value
+  // Final posting of data
+  amounts[index + 1].innerHTML += prefix0 + coinName.replace(/<(?:.|\n)*?>/gm, '').toLowerCase() + suffix0 + currency + suffix1 + output + spacing + outputEach + suffix2;
 }
 
 //Indexing agent for matching asynchronous replies to page
