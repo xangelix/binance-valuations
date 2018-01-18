@@ -1,5 +1,7 @@
 # binance-valuations
 
+* NOT AFFILIATED WITH "Binance.com" IN ANY WAY, USE AT YOUR OWN RISK
+
 Finds values of individual wallets inside Binance!
 
 This adds the value of each wallet in Binance (under deposits and withdraws) after clicking on the chrome extension icon.
