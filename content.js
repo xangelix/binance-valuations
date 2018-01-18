@@ -60,25 +60,24 @@ if (amounts[1].innerHTML.includes('<button class="btn btn-success"')) {
 }
 
 chrome.storage.sync.get('currency', (data) => {
-
-  // Synchronous spawner of asynchronous requests based off found wallets
-  for (var i = 1, l = amounts.length; i < l; i++) {
-    var coinValue = '';
+  var client = new HttpClient();
+  client.get('https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=' + data.currency, function(response) {
     currency = data.currency;
-    namesIndex.push(names[i].innerHTML);
-    var request = 'https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=' + data.currency;
-    if (parseFloat(btcs[indexFinder(names[i].innerHTML) + 1].innerHTML) > 0) {
-      requestion(request, names[i].innerHTML);
+    
+    // Synchronous spawner of asynchronous requests based off found wallets
+    for (var i = 1, l = amounts.length; i < l; i++) {
+      var coinValue = '';
+      namesIndex.push(names[i].innerHTML);
+      if (parseFloat(btcs[indexFinder(names[i].innerHTML) + 1].innerHTML) > 0) {
+        parseP(names[i].innerHTML, response);
+      }
     }
-  }
+  });
 });
 
 // Asynchronous calling
 function requestion(request, name) {
-  var client = new HttpClient();
-  client.get(request, function(response) {
-    parseP(name, response);
-  });
+
 }
 
 // Parsing of HTTP request
