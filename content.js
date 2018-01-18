@@ -88,9 +88,13 @@ function parseP(coinName, coinValue) {
   index = indexFinder(coinName);
   if (parseFloat(btcs[index + 1].innerHTML) > 0) {
     var output = parseFloat(coinValue) * parseFloat(btcs[index + 1].innerHTML);
-    var outputEach = output.toFixed(2) / 1;
+    var outputEach = output.toFixed(2) / amounts[index + 1].innerHTML.replace(/<(?:.|\n)*?>/gm, '');
     output = getCurrency(currency) + output.toFixed(2);
-    outputEach = getCurrency(currency) + outputEach.toFixed(2);
+    if (outputEach > 100) {
+      outputEach = getCurrency(currency) + outputEach.toFixed(0);
+    } else {
+      outputEach = getCurrency(currency) + outputEach.toFixed(2);
+    }
 
     // Dropdown for links to different resources when hovering over value
     // Final posting of data
