@@ -16,7 +16,6 @@ Please use the [issues tracker on this github repository](https://github.com/Mat
 WIP
 
 ## Upcoming Features (higher importance closer to the top)
-* Even less API calls
 * Issue and pull request template
 * Dropdown for links to different resources when hovering over value
 * Removal of nasty global variables
@@ -29,7 +28,7 @@ WIP
 ## Prerequisites
 
 * Access to [Binance](https://binance.com/) and [CryptoCompare](https://www.cryptocompare.com/)
-* Chromium based browser (firefox support is planned)
+* Chromium based browser (Firefox support is planned)
 
 ## Installing and Deployment
 
