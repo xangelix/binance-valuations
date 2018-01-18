@@ -8,7 +8,6 @@ var HttpClient = function() {
             if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
                 aCallback(anHttpRequest.responseText);
         };
-
         anHttpRequest.open( 'GET', aUrl, true );
         anHttpRequest.send( null );
     };
@@ -85,6 +84,8 @@ function parseP(coinName, coinValue) {
   var output = parseFloat(coinValue) * parseFloat(btcs[index + 1].innerHTML);
   var outputEach = output.toFixed(2) / amounts[index + 1].innerHTML.replace(/<(?:.|\n)*?>/gm, '');
   output = getCurrency(currency) + output.toFixed(2);
+
+  // Gets rid of decimal places if a single coin is worth over 100
   if (outputEach > 100) {
     outputEach = getCurrency(currency) + outputEach.toFixed(0);
   } else {
@@ -96,7 +97,7 @@ function parseP(coinName, coinValue) {
   amounts[index + 1].innerHTML += prefix0 + coinName.replace(/<(?:.|\n)*?>/gm, '').toLowerCase() + suffix0 + currency + suffix1 + output + spacing + outputEach + suffix2;
 }
 
-//Indexing agent for matching asynchronous replies to page
+// Indexing agent for matching asynchronous replies to page
 function indexFinder(coinName) {
   function finding(element) {
     return element === coinName;
