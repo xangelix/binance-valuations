@@ -10,7 +10,7 @@ This adds the value of each wallet in Binance (under deposits and withdraws) aft
 
 ## For Feature Suggestions and Bug Reports
 
-Please use the [issues tracker on this github repository](https://github.com/Matrix-Guy/binance-valuations/issues)!
+Please use the [issues tracker on this GitHub repository](https://github.com/Matrix-Guy/binance-valuations/issues)!
 
 ## Current Features
 WIP
@@ -37,7 +37,7 @@ WIP
 or
 
 1. Clone the repository.
-2. Go to ["chrome://extensions"](chrome://extensions). (or similar for other chromium based browsers such as vivaldi: ["vivaldi://extensions"](vivaldi://extensions))
+2. Go to ["chrome://extensions"](chrome://extensions). (or similar for other chromium based browsers such as Vivaldi: ["vivaldi://extensions"](vivaldi://extensions))
 3. Enable developer mode.
 4. Click "Load unpacked extension..." and select the repository's folder
 5. Done!
