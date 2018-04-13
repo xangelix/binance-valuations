@@ -1,3 +1,5 @@
+## Discontinued as this became an official feature of Binance in March 2018
+
 # binance-valuations
 
 * NOT AFFILIATED WITH "Binance.com" IN ANY WAY, USE AT YOUR OWN RISK
